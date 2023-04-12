@@ -53,7 +53,10 @@ require_once 'handle/error.php';
         <div class="row d-flex justify-content-between">
 
             <?php
+            // you should not run queries in the view
+            // this is why you should have used a controller
             $select = new lists();
+            // variable names??!
             $lists1 = $select->select("status","todo",);
             $lists2 = $select->select("status","doing");
             $lists3 = $select->select("status","done");
@@ -65,7 +68,7 @@ require_once 'handle/error.php';
 
                 <div class="m-2  py-3">
                     <div class="show-to-do">
-                        <?php if ($lists1 < 1) { ?>
+                        <?php if ($lists1 < 1) { // count($list1) ?>
                             <div class="item">
                                 <div class="alert-info text-center ">
                                     empty to do
@@ -98,7 +101,7 @@ require_once 'handle/error.php';
                 <div class="m-2 py-3">
                     <div class="show-to-do">
 
-                        <?php if ($lists2 < 1) { ?>
+                        <?php if ($lists2 < 1) {  // count($list2) ?>
                             <div class="item">
                                 <div class="alert-success text-center ">
                                     empty to do
@@ -128,7 +131,7 @@ require_once 'handle/error.php';
 
                 <div class="m-2 py-3">
                     <div class="show-to-do">
-                        <?php if ($lists3 < 1) { ?>
+                        <?php if ($lists3 < 1) { // count($list3) ?>
                             <div class="item">
                                 <div class="alert-warning text-center ">
                                     empty to do
@@ -141,8 +144,6 @@ require_once 'handle/error.php';
                                 <a href="handle/delete.php?id=<?= $list['id'] ?>" onclick="confirm('are your sure')" class="remove-to-do text-dark d-flex justify-content-end "><i class="fa fa-close" style="font-size:16px;"></i></a>
                                 <h4><?= $list['title'] ?></h4>
                                 <h5><?= $list['created_at'] ?></h5>
-
-
                             </div>
                         <?php } ?>
                     </div>

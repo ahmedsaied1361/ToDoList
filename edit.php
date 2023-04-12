@@ -2,6 +2,7 @@
 require_once 'inc/header.php';
 require_once 'handle/DB.php';
 
+// don't query the database here
 $select = new lists();
 $result = $select->select("id", $_GET['id']);
 ?>

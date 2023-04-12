@@ -2,6 +2,7 @@
 
 session_start();
 
+// class name should be in PascalCase
 class msg
 {
     public function error($errors)

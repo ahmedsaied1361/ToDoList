@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); // why do we need this?
 require_once 'validator.php';
 require_once 'DB.php';
 $validation = new validator;

@@ -1,4 +1,5 @@
 <?php
+// each class or interface should be in a separate file
 interface CRUD
 {
     public function select($x, $y);
@@ -7,6 +8,9 @@ interface CRUD
     public function delete($id);
 };
 
+// formatting...
+// file name does not match class name, class name should be in PascalCase
+// it would be better if you use type hinting
 class lists implements CRUD
 {
     private $conn;
@@ -14,6 +18,9 @@ class lists implements CRUD
     {
         $this->conn = new PDO("mysql:host=localhost;port=3306;dbname=todo", "root", "");
     }
+    // why do we have this method??
+    // we should have a method called get by id for example, or get by status
+    // to avoid unknown column errors
     public function select($x, $y)
     {
         $select = $this->conn->prepare("SELECT * FROM `todolist` WHERE `$x`=:key ORDER BY `id` DESC ");

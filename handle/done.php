@@ -6,7 +6,7 @@ $validation = new validator;
 
 if ($validation->isset($_GET['id'])) {
     $select = new lists;
-    $result1 = $select->select("id", $_GET['id']);
+    $result1 = $select->select("id", $_GET['id']); // why are we selecting here??
     if ($result1 == true) {
         $update = new lists();
         $result2 = $update->update("status", "done", $_GET['id']);

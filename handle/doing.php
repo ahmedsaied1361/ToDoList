@@ -1,5 +1,6 @@
 <?php
-
+// doing & done are the same
+// why you don't use OOP at all??
 require_once 'validator.php';
 require_once 'DB.php';
 $validation = new validator;
